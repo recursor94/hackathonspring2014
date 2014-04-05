@@ -46,19 +46,19 @@
       
     <TextView
         android:id="@+id/dueDateField"
-        android:onClick="showCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dueDateField"
+        android:calendarViewShown="false"
        />
-            <EditText
+            <DatePicker
         android:id="@+id/dueDateEntry"
         android:inputType="datetime"
         android:hint="@string/dueDateEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
-        android:spinnersShown="false"
+       
      />
             </TableRow>
             
@@ -68,11 +68,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reminderDateField"
+       
        />
              
-         <EditText
+         <DatePicker
         android:id="@+id/reminderDateEntry"
-        android:inputType="datetime"
+        android:inputType="datetime" 
+        android:calendarViewShown="false"
+ 
         android:hint="@string/reminderDateEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
