@@ -16,6 +16,7 @@
     <string name="reminderDateEntry">Reminder date</string>
     <string name="intervalReminderField">Remind me every:</string>
     <string name="submitNewEndeavor">Submit</string>
+    <string name="dueDateTimeText">Time of Class/Activity:</string>
     
     <string-array name="typeArray">
         <item>Class</item>

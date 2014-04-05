@@ -2,32 +2,27 @@ package com.example.studentplanner;
 
 import java.util.Calendar;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
-import android.os.Build;
+import android.widget.TimePicker;
 
 public class NewEndeavorActivity extends ActionBarActivity {
 	//define constants for intent extra key.
 	private final static String ENDEAVOR = "com.example.studentplanner.NEWENDEAVOR";
-	private final static String TYPE = "com.example.studentplanner.TYPE";
+	private final static String TYPEINDEX = "com.example.studentplanner.TYPE";
 	private final static String DUEDATE = "com.example.studentplanner.DUEDATE";
 	private final static String REMINDERDATE = "com.example.studentplanner.REMINDERDATE";
 	private final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
@@ -121,12 +116,51 @@ public class NewEndeavorActivity extends ActionBarActivity {
 		
 	} */
 	
-	public void submitOnClick() {
+	public void submitOnClick(View v) {
+		
+		Calendar dueDate = Calendar.getInstance(); //create Calendar to put date and time from input into
+		Calendar reminderDate = Calendar.getInstance();
+	
+		
 		EditText endeavorNameField = (EditText) findViewById(R.id.nameEntry);
 		Spinner typeField = (Spinner) findViewById(R.id.typeDropDown);
 		DatePicker dueDateField = (DatePicker) findViewById(R.id.dueDateEntry);
 		DatePicker reminderDateField = (DatePicker) findViewById(R.id.reminderDateEntry);
 		Spinner reminderInterval = (Spinner) findViewById(R.id.intervalDropDown);
+		TimePicker dueTimeField = (TimePicker) findViewById(R.id.dueDateTime);
+		TimePicker reminderTimeField = (TimePicker) findViewById(R.id.reminderTime);
+		
+		Intent resultIntent = new Intent(); //intent which will return these values to the main activity.
+		
+		
+		String name = endeavorNameField.toString();
+		int typeIndex = typeField.getSelectedItemPosition();
+		Log.d("NewEndeavorActivity", ""+ typeIndex);  //all logs are debug strings
+		dueDate.set(dueDateField.getYear(), dueDateField.getMonth(), dueDateField.getDayOfMonth(), 
+				dueTimeField.getCurrentHour(), dueTimeField.getCurrentMinute()); //convert date from picker into Java calendar for easier calculations
+		
+		Log.d("NewEndeavorActivity", "Calendar: " + dueDate.toString());
+		
+		reminderDate.set(reminderDateField.getYear(), reminderDateField.getMonth(), reminderDateField.getDayOfMonth(), 
+				reminderTimeField.getCurrentHour(), reminderTimeField.getCurrentMinute());
+		
+		int reminderIntervalIndex = reminderInterval.getSelectedItemPosition();
+				
+	//send values back
+		
+		resultIntent.putExtra(ENDEAVOR, name);
+		resultIntent.putExtra(TYPEINDEX, typeIndex);
+		resultIntent.putExtra(DUEDATE, dueDate);
+		resultIntent.putExtra(REMINDERDATE, reminderDate);
+		resultIntent.putExtra(REMINDERINTERVAL, reminderIntervalIndex);
+		
+		
+		setResult(Activity.RESULT_OK, resultIntent); //required to send data back to main activity
+		
+		this.finish();
+		
+	
+		
 	}
 
 }

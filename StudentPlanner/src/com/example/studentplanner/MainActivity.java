@@ -4,10 +4,11 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 public class MainActivity extends Activity{
 	
 	private ArrayList<StudentEndeavor> studentEndeavors;
+	private AlarmManager timeTracker;
 	
 	
 
@@ -93,6 +95,15 @@ public class MainActivity extends Activity{
     public void makeNewActivityForm() {
     	Intent intent = new Intent(this, NewEndeavorActivity.class);
     	startActivityForResult(intent, Activity.RESULT_OK);
+    }
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	Log.d("MainActivity", "Started response to activity.");
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+    	
+    	
     }
 
 }

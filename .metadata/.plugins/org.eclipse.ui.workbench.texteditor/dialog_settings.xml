@@ -4,7 +4,7 @@
 		<item value="291" key="DIALOG_WIDTH"/>
 		<item value="170" key="DIALOG_Y_ORIGIN"/>
 		<item value="433" key="DIALOG_HEIGHT"/>
-		<item value="1046" key="DIALOG_X_ORIGIN"/>
+		<item value="721" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,14 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="name" key="selection"/>
+		<item value="Button" key="selection"/>
 		<list key="findhistory">
+			<item value="button"/>
+			<item value="date"/>
+			<item value="spinner"/>
+			<item value="oncreateview"/>
 			<item value="name"/>
 			<item value="title"/>
 			<item value="main_activity_actions"/>
 			<item value="menu."/>
-			<item value="activity_mai"/>
-			<item value="activity"/>
 		</list>
 		<list key="replacehistory">
 		</list>
