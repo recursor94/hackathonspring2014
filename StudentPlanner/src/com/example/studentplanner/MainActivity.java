@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 public class MainActivity extends Activity{
 	
 	private ArrayList<StudentEndeavor> studentEndeavors;
-	private AlarmManager timeTracker;
+	private AlarmManager alarmManager; //used to register task in background and launch twilio intent after time passes.
 	
 	
 
@@ -34,6 +34,7 @@ public class MainActivity extends Activity{
               //      .commit();
         //}
         
+        
         try {
         	  ViewConfiguration config = ViewConfiguration.get(this);
         	  Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
@@ -46,6 +47,10 @@ public class MainActivity extends Activity{
         	catch (Exception e) {
         	  // presumably, not relevant
         	}
+        
+        alarmManager  = (AlarmManager) getSystemService(ALARM_SERVICE);
+        
+        
     }
 
 
