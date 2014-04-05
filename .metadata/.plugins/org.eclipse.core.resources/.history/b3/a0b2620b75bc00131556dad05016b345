@@ -1,0 +1,13 @@
+package com.example.studentplanner;
+
+import java.util.Calendar;
+
+public class StudentEndeavor {
+private Calendar dueDate;
+private String activityName;
+private Calendar reminderStartDate;
+
+
+
+
+}

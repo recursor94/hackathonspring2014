@@ -1,0 +1,9 @@
+package com.example.studentplanner;
+
+import java.util.Calendar;
+
+public class StudentActivity {
+private Calendar dueDate;
+private 
+
+}

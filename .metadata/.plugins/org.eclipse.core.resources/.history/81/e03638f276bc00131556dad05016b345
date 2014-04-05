@@ -1,0 +1,28 @@
+package com.example.studentplanner;
+
+import java.util.Calendar;
+
+public class StudentEndeavor {
+private Calendar dueDate;
+private String activityName;
+private Calendar reminderStartDate;
+private long reminderInterval; //time interval to remind student
+
+public StudentEndeavor (Calendar dD, String an, Calendar rsd, long ri) {
+	this.dueDate = dD;
+	this.activityName = an;
+	this.reminderStartDate = rsd;
+	this.reminderInterval = ri;
+}
+
+public Calendar getCurrentDate() {
+	Calendar cal = Calendar.getInstance();
+	cal.set(Calendar.HOUR_OF_DAY, 0);
+	cal.set(Calendar.MINUTE, 0);
+	cal.set(Calendar.SECOND, 0);
+	cal.set(Calendar.MILLISECOND, 0);
+}
+
+
+
+}

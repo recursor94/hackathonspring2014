@@ -1,0 +1,20 @@
+package com.example.studentplanner;
+
+import java.util.Calendar;
+
+public class StudentEndeavor {
+private Calendar dueDate;
+private String activityName;
+private Calendar reminderStartDate;
+private long reminderInterval; //time interval to remind student
+
+public StudentEndeavor (Calendar dD, String an, Calendar rsd, long ri) {
+	this.dueDate = dD;
+	this.activityName = an;
+	
+}
+
+
+
+
+}
