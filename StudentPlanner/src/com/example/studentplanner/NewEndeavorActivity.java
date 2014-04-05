@@ -1,27 +1,51 @@
 package com.example.studentplanner;
 
+import java.util.Calendar;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.os.Build;
 
 public class NewEndeavorActivity extends ActionBarActivity {
+	//define constants for intent extra key.
+	private final static String ENDEAVOR = "com.example.studentplanner.NEWENDEAVOR";
+	private final static String TYPE = "com.example.studentplanner.TYPE";
+	private final static String DUEDATE = "com.example.studentplanner.DUEDATE";
+	private final static String REMINDERDATE = "com.example.studentplanner.REMINDERDATE";
+	private final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_endeavor);
+		 if (savedInstanceState == null) {
+          getSupportFragmentManager().beginTransaction()
+                  .add(R.id.container, new PlaceholderFragment())
+                  .commit();
+      }
+	}
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+	private Object supportgetFragmentManager() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -59,6 +83,50 @@ public class NewEndeavorActivity extends ActionBarActivity {
 					container, false);
 			return rootView;
 		}
+	}
+	
+	/*public void showCalender() {
+		showPopupCalendar(NewEndeavorActivity.this);
+	}
+	
+	
+	public void showPopupCalendar(Activity context) {
+		LayoutInflater layoutInflater  = (LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = layoutInflater.inflate(R.layout.fragment_new_endeavor, null, false);
+		final PopupWindow popup = new PopupWindow(layout,400,400);
+		popup.setContentView(layout);
+		popup.setHeight(500);
+		popup.setOutsideTouchable(false);
+		//popup.setBackgroundDrawable(new BitmapDrawable());
+
+        CalendarView cv = (CalendarView) layout.findViewById(R.id.calendarView);
+        cv.setBackgroundColor(Color.BLUE);
+
+        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+        @Override
+        public void onSelectedDayChange(CalendarView view, int year, int month,
+                int dayOfMonth) {
+            // TODO Auto-generated method stub
+            popup.dismiss();
+            Log.d("date selected", "date selected " + year + " " + month + " " + dayOfMonth);
+
+            }
+        
+        });
+        popup.showAtLocation(layout, Gravity.TOP,5,170);
+
+        
+
+		
+	} */
+	
+	public void submitOnClick() {
+		EditText endeavorNameField = (EditText) findViewById(R.id.nameEntry);
+		Spinner typeField = (Spinner) findViewById(R.id.typeDropDown);
+		DatePicker dueDateField = (DatePicker) findViewById(R.id.dueDateEntry);
+		DatePicker reminderDateField = (DatePicker) findViewById(R.id.reminderDateEntry);
+		Spinner reminderInterval = (Spinner) findViewById(R.id.intervalDropDown);
 	}
 
 }
