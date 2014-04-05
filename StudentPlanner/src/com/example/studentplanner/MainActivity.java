@@ -107,6 +107,16 @@ public class MainActivity extends Activity{
     	Log.d("MainActivity", "Started response to activity.");
     	super.onActivityResult(requestCode, resultCode, data);
     	
+    	//create student endeavor to hold new data.
+    	
+    	
+    	int typeIndex = data.getIntExtra(NewEndeavorActivity.TYPEINDEX);
+    	
+    	StudentEndeavor studentEndeavor = new StudentEndeavor();
+    	
+    	
+    	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, Calend, intervalMillis, operation);
+    	
     	
     	
     }

@@ -21,11 +21,11 @@ import android.widget.TimePicker;
 
 public class NewEndeavorActivity extends ActionBarActivity {
 	//define constants for intent extra key.
-	private final static String ENDEAVOR = "com.example.studentplanner.NEWENDEAVOR";
-	private final static String TYPEINDEX = "com.example.studentplanner.TYPE";
-	private final static String DUEDATE = "com.example.studentplanner.DUEDATE";
-	private final static String REMINDERDATE = "com.example.studentplanner.REMINDERDATE";
-	private final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
+	public final static String ENDEAVOR = "com.example.studentplanner.NEWENDEAVOR";
+	public final static String TYPEINDEX = "com.example.studentplanner.TYPE";
+	public final static String DUEDATE = "com.example.studentplanner.DUEDATE";
+	public final static String REMINDERDATE = "com.example.studentplanner.REMINDERDATE";
+	public final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
