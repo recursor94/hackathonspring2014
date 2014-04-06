@@ -195,7 +195,25 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 			
 		}
 		
-		
 	}
+		
+		public ArrayList<Long []> getEndeavorTiming() {
+			SQLiteDatabase database = this.getReadableDatabase();
+			ArrayList<Long []> times = new ArrayList<Long[]>();
+			
+			Cursor cursor = database.query("Student_Activities", new String[] {"DueDate", "ReminderDate", "ReminderInterval"}, null, null, null, null, null, null);
+			
+			while(cursor.moveToNext()) {
+				Long [] results = {cursor.getLong(cursor.getColumnIndex("DueDate")), cursor.getLong(cursor.getColumnIndex("ReminderDate")), cursor.getLong(cursor.getColumnIndex("ReminderInterval"))};
+				times.add(results);
+
+				
+			}
+			
+			return times;
+			}
+		
+		
+	
 
 }
