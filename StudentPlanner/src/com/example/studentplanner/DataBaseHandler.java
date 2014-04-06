@@ -9,7 +9,7 @@ import android.widget.TimePicker;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME ="plannerDB";
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 3;
 	
 	
 	
@@ -18,6 +18,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_CREATE_REMINDER_DATE = "create table Reminder_Date "
 			+ "(id integer primary key autoincrement, Month integer not null, year integer not null, day integer not null, hour integer not null, minute integer not null) ";
+	
 	private static final String DATABASE_CREATE_STUDENT_ACTIVITIES =  "create table Student_Activities "
 			+ "(id integer primary key autoincrement, name text not null, type text not null,"
 			+ " Due_Date_Id integer, Reminder_Date_Id Integer, Reminder_Interval integer, "
@@ -49,7 +50,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 		 database.execSQL("PRAGMA foreign_keys = ON");
 		 database.execSQL("drop table if exists Due_date");
 		 database.execSQL("drop table if exists Reminder_date");
-		 database.execSQL("drop table if exists Student_Activites");
+		 database.execSQL("drop table if exists Student_Activities");
 		 
 		 onCreate(database);
 		 
@@ -70,9 +71,20 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 		
 		SQLiteDatabase database = this.getWritableDatabase();
 		
-		String query = "insert into Due_Date values (" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
+		String query = "insert into Due_Date (month, year, day, hour, minute) "
+				+ "values (" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
 		Log.d("DatabaseHandler", query);
 		database.execSQL(query);
+	}
+	
+	public void addReminderDate(DatePicker dp, TimePicker tp) {
+		SQLiteDatabase database= this.getWritableDatabase();
+		
+		String query = "insert into reminder_Date (month, year, day, hour, minute) values (" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
+		Log.d("DatabaseHandler", query);
+		database.execSQL(query);
+
+		
 	}
 
 }
