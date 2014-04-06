@@ -17,8 +17,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	private static final String DATABASE_CREATE_REMINDER_DATE = "create table Reminder_Date "
 			+ "(id integer primary key autoincrement, Month integer not null, day integer not null, hour integer not null, minute integer not null) ";
 	private static final String DATABASE_CREATE_STUDENT_ACTIVITIES =  "create table Student_Activities "
-			+ "(id integer primary key, name text not null, type text not null,"
-			+ " Due_Date_Id integer foreign key references Due_Date(Id), Reminder_Date_Id Integer foreign key references Reminder_Date(Id), Reminder_Interval integer"
+			+ "(id integer primary key autoincrement, name text not null, type text not null,"
+			+ " Due_Date_Id integer, Reminder_Date_Id Integer, Reminder_Interval integer, "
+			+ "foreign key (Due_Date_Id) references Due_Date(Id), "
+			+ "foreign key (Reminder_Date_Id) references Reminder_Date(Id)"
 			+ ")";
 	
 
@@ -29,6 +31,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		//run during creation of database.
+		database.execSQL("PRAGMA foreign_keys = ON");
 		database.execSQL(DATABASE_CREATE_DUE_DATE);
 		database.execSQL(DATABASE_CREATE_REMINDER_DATE);
 		database.execSQL(DATABASE_CREATE_STUDENT_ACTIVITIES);
@@ -41,6 +44,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 		 Log.w(DataBaseHandler.class.getName(),
                  "Upgrading database from version " + oldVersion + " to "
                          + newVersion + ", which will destroy all old data");
+		 database.execSQL("PRAGMA foreign_keys = ON");
 		 database.execSQL("drop table if exists Due_date");
 		 database.execSQL("drop table if exists Reminder_date");
 		 database.execSQL("drop table if exists Student_Activites");
@@ -56,7 +60,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 			super.onOpen(db);
 			if (!db.isReadOnly()) {
 	// Enable foreign key constraints
-	db.execSQL("PRAGMA foreign_keys=ON;");
+	db.execSQL("PRAGMA foreign_keys=ON;"); //required to enable foreign keys!
 	}
 		} 
 
