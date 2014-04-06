@@ -1,9 +1,7 @@
 package com.example.studentplanner;
 
-import java.util.Calendar;
-
-import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -13,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -122,8 +119,8 @@ public class NewEndeavorActivity extends ActionBarActivity {
 	
 	public void submitOnClick(View v) {
 		
-		Calendar dueDate = Calendar.getInstance(); //create Calendar to put date and time from input into
-		Calendar reminderDate = Calendar.getInstance();
+		//Calendar dueDate = Calendar.getInstance(); //create Calendar to put date and time from input into
+		//Calendar reminderDate = Calendar.getInstance();
 	
 		
 		EditText endeavorNameField = (EditText) findViewById(R.id.nameEntry);
@@ -140,28 +137,33 @@ public class NewEndeavorActivity extends ActionBarActivity {
 		String name = endeavorNameField.toString();
 		int typeIndex = typeField.getSelectedItemPosition();
 		Log.d("NewEndeavorActivity", ""+ typeIndex);  //all logs are debug strings
-		dueDate.set(dueDateField.getYear(), dueDateField.getMonth(), dueDateField.getDayOfMonth(), 
-				dueTimeField.getCurrentHour(), dueTimeField.getCurrentMinute()); //convert date from picker into Java calendar for easier calculations
+		//dueDate.set(dueDateField.getYear(), dueDateField.getMonth(), dueDateField.getDayOfMonth(), 
+				//dueTimeField.getCurrentHour(), dueTimeField.getCurrentMinute()); //convert date from picker into Java calendar for easier calculations
 		
-		Log.d("NewEndeavorActivity", "Calendar: " + dueDate.toString());
+		//Log.d("NewEndeavorActivity", "Calendar: " + dueDate.toString());
 		
-		reminderDate.set(reminderDateField.getYear(), reminderDateField.getMonth(), reminderDateField.getDayOfMonth(), 
-				reminderTimeField.getCurrentHour(), reminderTimeField.getCurrentMinute());
+		//reminderDate.set(reminderDateField.getYear(), reminderDateField.getMonth(), reminderDateField.getDayOfMonth(), 
+			//	reminderTimeField.getCurrentHour(), reminderTimeField.getCurrentMinute());
 		
 		int reminderIntervalIndex = reminderInterval.getSelectedItemPosition();
 				
 	//send values back
 		
-		resultIntent.putExtra(ENDEAVOR, name);
+		/*resultIntent.putExtra(ENDEAVOR, name);
 		resultIntent.putExtra(TYPEINDEX, typeIndex);
 		resultIntent.putExtra(DUEDATE, dueDate);
 		resultIntent.putExtra(REMINDERDATE, reminderDate);
 		resultIntent.putExtra(REMINDERINTERVAL, reminderIntervalIndex);
 		
+		*/
+		//etResult(Activity.RESULT_OK, resultIntent); //required to send data back to main activity
+		//save results to database
 		
-		setResult(Activity.RESULT_OK, resultIntent); //required to send data back to main activity
+		
+		plannerDatabase.addDueDate(dueDateField, dueTimeField);
 		
 		this.finish();
+		
 		
 	
 		

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME ="plannerDB";
@@ -12,10 +14,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	
 	
 	private static final String DATABASE_CREATE_DUE_DATE = "create table Due_Date "
-			+ "(id integer primary key autoincrement, Month integer not null, day integer not null, hour integer not null, minute integer not null) ";
+			+ "(id integer primary key autoincrement, Month integer not null, year integer not null, day integer not null, hour integer not null, minute integer not null) ";
 	
 	private static final String DATABASE_CREATE_REMINDER_DATE = "create table Reminder_Date "
-			+ "(id integer primary key autoincrement, Month integer not null, day integer not null, hour integer not null, minute integer not null) ";
+			+ "(id integer primary key autoincrement, Month integer not null, year integer not null, day integer not null, hour integer not null, minute integer not null) ";
 	private static final String DATABASE_CREATE_STUDENT_ACTIVITIES =  "create table Student_Activities "
 			+ "(id integer primary key autoincrement, name text not null, type text not null,"
 			+ " Due_Date_Id integer, Reminder_Date_Id Integer, Reminder_Interval integer, "
@@ -62,6 +64,15 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	// Enable foreign key constraints
 	db.execSQL("PRAGMA foreign_keys=ON;"); //required to enable foreign keys!
 	}
-		} 
+		}
+	
+	public void addDueDate(DatePicker dp, TimePicker tp) {
+		
+		SQLiteDatabase database = this.getWritableDatabase();
+		
+		String query = "insert into Due_Date values (" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
+		Log.d("DatabaseHandler", query);
+		database.execSQL(query);
+	}
 
 }
