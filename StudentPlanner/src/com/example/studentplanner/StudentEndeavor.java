@@ -3,13 +3,12 @@ package com.example.studentplanner;
 import java.util.Calendar;
 
 public class StudentEndeavor {
-private String type;
+private int type;
 private Calendar dueDate;
 private String endeavorName;
 private Calendar reminderStartDate;
 private long reminderInterval; //time interval to remind student
-
-public StudentEndeavor (String t, Calendar dD, String an, Calendar rsd, long ri) {
+public StudentEndeavor (int t, Calendar dD, String an, Calendar rsd, long ri) {
 	this.type = t;
 	this.dueDate = dD;
 	this.endeavorName = an;
@@ -41,7 +40,7 @@ public long getReminderInterVal() {
 public String getName() {
 	return endeavorName;
 }
-public String getType() {
+public int getType() {
 	return type;
 }
 

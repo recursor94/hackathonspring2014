@@ -1,0 +1,118 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    >
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    >
+<TableRow>
+    <TextView
+        android:id="@+id/nameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >"@string/nameField"
+         />
+    <EditText
+        android:id="@+id/nameEntry"
+        android:hint="@string/nameEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      
+        />
+    </TableRow>
+    <TableRow>
+      <TextView
+        android:id="@+id/typeField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/typeField"
+         />
+      
+      
+        <Spinner
+        android:id="@+id/typeDropDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:entries="@array/typeArray" 
+        android:prompt="@string/typePrompt"/>
+        
+        </TableRow>
+  <TableRow>
+      
+    <DatePicker
+        android:id="@+id/dueDateField"
+        android:onClick="showCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dueDateField"
+       />
+            <EditText
+        android:id="@+id/dueDateEntry"
+        android:inputType="datetime"
+        android:hint="@string/dueDateEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:spinnersShown="false"
+     />
+            </TableRow>
+            
+  <TableRow>
+             <TextView
+        android:id="@+id/reminderDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reminderDateField"
+       />
+	
+         <DatePicker
+        android:id="@+id/reminderDateEntry"
+        android:inputType="datetime"
+        android:hint="@string/reminderDateEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+  />
+         </TableRow>
+         <TableRow>
+             
+             
+      <TextView
+        android:id="@+id/intervalReminderField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intervalReminderField"
+         />
+   
+             
+    <Spinner
+        android:id="@+id/intervalDropDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:entries="@array/intervalArray"
+        android:prompt="@string/intervalReminderField"/>
+    </TableRow>
+                      
+   <TableRow>
+      	<Button 
+      	    android:id="@+id/submitNewEndeavor"
+      	    android:text="@string/submitNewEndeavor"
+      	    android:layout_weight="1"
+      	    android:onClick="submitOnClick"
+      	    
+      	    />
+   </TableRow>
+        
+                               
+</TableLayout>

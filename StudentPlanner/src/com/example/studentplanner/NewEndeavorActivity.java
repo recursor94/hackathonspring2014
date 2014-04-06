@@ -26,9 +26,13 @@ public class NewEndeavorActivity extends ActionBarActivity {
 	public final static String DUEDATE = "com.example.studentplanner.DUEDATE";
 	public final static String REMINDERDATE = "com.example.studentplanner.REMINDERDATE";
 	public final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
+	
+    private DataBaseHandler plannerDatabase = new DataBaseHandler(NewEndeavorActivity.this);
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		plannerDatabase.getWritableDatabase();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_endeavor);
 		 if (savedInstanceState == null) {

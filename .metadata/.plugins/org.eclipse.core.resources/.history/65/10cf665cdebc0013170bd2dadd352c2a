@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Get It Done</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_new">New Activity</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_new_endeavor">Create a new activity</string>
+    <string name="nameField">Class/Activity name:</string>
+    <string name="nameEntry">Enter name of class or activity</string>
+    <string name="typeField">Type of Activity:</string>
+    <string name="typePrompt">Choose the type of activity</string>
+    <string name="dueDateField">Due Date:</string>
+    <string name="dueDateEntry">Enter the due date/day ofthe activity</string>
+    <string name="reminderDateField">Date to start reminding me:</string>
+    <string name="reminderDateEntry">Reminder date</string>
+    
+    <string-array name="typeArray">
+        <item>Class</item>
+        <item>Extracurricular</item>
+        <item>Other</item>
+    </string-array>
+</resources>

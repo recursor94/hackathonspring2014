@@ -2,6 +2,7 @@ package com.example.studentplanner;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -104,18 +105,24 @@ public class MainActivity extends Activity{
     
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	Log.d("MainActivity", "Started response to activity.");
+    /*	Log.d("MainActivity", "Started response to activity.");
     	super.onActivityResult(requestCode, resultCode, data);
     	
     	//create student endeavor to hold new data.
     	
+    	//lots of code required to get proper values from the intents extra key value pair
+    	int typeIndex = data.getIntExtra(NewEndeavorActivity.TYPEINDEX, 0);
+    	int reminderInterval = data.getIntExtra(NewEndeavorActivity.REMINDERINTERVAL, 0);
+    	Calendar dueDate = data.get
     	
-    	int typeIndex = data.getIntExtra(NewEndeavorActivity.TYPEINDEX);
+    	
+    	
+    	String name = data.getStringExtra(NewEndeavorActivity.ENDEAVOR);
     	
     	StudentEndeavor studentEndeavor = new StudentEndeavor();
     	
     	
-    	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, Calend, intervalMillis, operation);
+    	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, Calend, intervalMillis, operation); */
     	
     	
     	
