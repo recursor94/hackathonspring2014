@@ -30,6 +30,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.studentplanner.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.studentplanner.AlarmActivity"
+            android:label="@string/title_activity_alarm" >
+        </activity>
     </application>
 
 </manifest>

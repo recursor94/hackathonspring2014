@@ -1,9 +1,12 @@
 package com.example.studentplanner;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +30,7 @@ public class NewEndeavorActivity extends ActionBarActivity {
 	public final static String REMINDERINTERVAL = "com.example.studentplanner.REMINDERINTERVAL";
 	
     private DataBaseHandler plannerDatabase = new DataBaseHandler(NewEndeavorActivity.this);
+	private AlarmManager alarmManager;
 
 	
 	@Override
@@ -180,5 +184,22 @@ public class NewEndeavorActivity extends ActionBarActivity {
 	
 		
 	}
+	
+	  public void addToAlarmManager() {
+	    	ArrayList<Long[]> endeavors = plannerDatabase.getEndeavorTiming();
+	    	Intent intent = new Intent(getApplicationContext(),  AlarmActivity.class);
+	    	PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+	    	
+	    for(Long [] ls : endeavors ){
+	    	for(int  n = 0; n < ls.length; n = n + 1) {
+	    		alarmManager =  (AlarmManager)getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+	    	}
+	    	//alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  )
+
+	    	
+	    }
+	    	
+	    	
+	  }
 
 }
