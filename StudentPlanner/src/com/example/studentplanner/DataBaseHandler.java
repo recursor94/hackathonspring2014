@@ -183,13 +183,13 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	
 	public void queryAllActivities() {
 		SQLiteDatabase database = this.getReadableDatabase();
-		Cursor cursor = database.query("Student_Activities", new String [] {"id", "name", "type", "DueDate", "ReminderDate"}, null, null, null, null, null, null);
+		Cursor cursor = database.query("Student_Activities", new String [] {"id", "name", "type", "DueDate", "ReminderDate", "ReminderInterval"}, null, null, null, null, null, null);
 		while(cursor.moveToNext()) {
 			Log.d("Query", cursor.getString(cursor.getColumnIndex("name")));
 			Log.d("Query", cursor.getString(cursor.getColumnIndex("type")));
-			Log.d("Query", cursor.getInt(cursor.getColumnIndex("DueDate")) + "");
-			Log.d("Query", cursor.getInt(cursor.getColumnIndex("ReminderDate")) + "");
-			Log.d("Query", cursor.getInt(cursor.getColumnIndex("ReminderInterval")) + "");
+			Log.d("Query", cursor.getLong(cursor.getColumnIndex("DueDate")) + "");
+			Log.d("Query", cursor.getLong(cursor.getColumnIndex("ReminderDate")) + "");
+			Log.d("Query", cursor.getLong(cursor.getColumnIndex("ReminderInterval")) + "");
 
 
 			
