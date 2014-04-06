@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="android.view.MenuInflater"/>
 <fullyQualifiedTypeName name="android.view.ViewConfiguration"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
@@ -23,4 +22,7 @@
 <fullyQualifiedTypeName name="android.widget.TimePicker"/>
 <fullyQualifiedTypeName name="com.example.studentplanner.R.id"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="android.database.Cursor"/>
+<fullyQualifiedTypeName name="android.database.sqlite.SQLiteDatabase"/>
 </qualifiedTypeNameHistroy>
