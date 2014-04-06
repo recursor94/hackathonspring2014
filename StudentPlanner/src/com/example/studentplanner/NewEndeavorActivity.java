@@ -163,6 +163,8 @@ public class NewEndeavorActivity extends ActionBarActivity {
 		plannerDatabase.addDueDate(dueDateField, dueTimeField);
 		plannerDatabase.addReminderDate(reminderDateField, reminderTimeField);
 		
+		
+		
 		this.finish();
 		
 		

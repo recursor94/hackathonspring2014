@@ -80,10 +80,55 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 	public void addReminderDate(DatePicker dp, TimePicker tp) {
 		SQLiteDatabase database= this.getWritableDatabase();
 		
-		String query = "insert into reminder_Date (month, year, day, hour, minute) values (" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
+		String query = "insert into reminder_Date (month, year, day, hour, minute) values ("
+				+ "" + dp.getMonth() +", " + dp.getYear() + ", " + dp.getDayOfMonth() + ", " + tp.getCurrentHour() + ", " + tp.getCurrentMinute() + ")";
 		Log.d("DatabaseHandler", query);
 		database.execSQL(query);
 
+		
+	}
+	
+	public void addStudentActivity(String name, int typeIndex, int remainderIndex ) {
+		String type = "";
+		long reminderInterval = 0l; //in milliseconds since this is how dates can be best compared, and how alarm service works.
+		
+		switch(typeIndex) {
+		case 0:
+			type = "Class";
+			break;
+		case 1:
+			type = "Extracurricular";
+			break;
+		case 2:
+			type = "Other";
+			break;
+		}
+		
+		switch(remainderIndex) {
+		case 0:
+			reminderInterval =  604800000; //This many milliseconds are in a week.
+			break;
+		
+		case 1:
+			reminderInterval = 86400000; //in a day
+			break;
+		case 2:
+			reminderInterval = 43200000; //in 12 hours
+			break;
+		case 3:
+			reminderInterval = 3600000; //in an hour
+			break;
+		case 4:
+			reminderInterval = 1800000; //in 30 minutes
+			break;
+		case 5:
+			reminderInterval=600000; //in 10 minutes
+			break;
+		case 6:
+			reminderInterval=300000;//in 5 minutes
+			break;
+		
+			}
 		
 	}
 
